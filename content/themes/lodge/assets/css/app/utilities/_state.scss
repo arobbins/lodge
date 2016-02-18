@@ -1,0 +1,29 @@
+.is-hidden {
+  display: none;
+  opacity: 0;
+  @extend .transition-fast;
+}
+
+.is-visible {
+  visibility: block;
+  opacity: 1;
+  @extend .transition-fast;
+}
+
+.is-circle {
+  border-radius: 50%;
+  display: block;
+  -webkit-backface-visibility: hidden;
+}
+
+.is-closer {
+  @extend .transition-fast;
+
+  &:hover {
+    transform: scale(1.02);
+    z-index: 2;
+
+    @extend .shadow;
+  }
+
+}

@@ -1,0 +1,40 @@
+//
+// Grid
+//
+@mixin create-col($cols, $margin) {
+
+  @if($cols == 1) {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+
+  } @else {
+    flex: 0 0 calc((100% / #{$cols}) - #{$margin});
+    max-width: calc((100% / #{$cols}) - #{$margin});
+    width: calc((100% / #{$cols}) - #{$margin});
+  }
+
+}
+
+
+//
+// Breakpoints
+//
+@mixin respond-to($breakpoint, $size) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @if($size == 'max') {
+      @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    } @else {
+      @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}

@@ -1,0 +1,133 @@
+//
+// Misc / Global
+//
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: $font-base;
+  font-family: $font-primary;
+  color: color(darkblue);
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.l-col {
+    padding: 0;
+  }
+
+  &.animated {
+    animation-duration: 0.3s;
+  }
+
+  @include respond-to(600, 'max') {
+    font-size: ($font-base - 2px);
+    line-height: 2;
+  }
+}
+
+::selection {
+  background-color: color(offwhite);
+  // color: white;
+}
+
+code, kbd, pre, samp {
+  border-radius: rem($space-s / 2);
+}
+
+ul, ol, dl {
+  padding-left: 10px;
+  margin: rem($space-s) 0 rem($space-s) rem($space-s);
+}
+
+
+//
+// Typography
+//
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  line-height: 1.4;
+  color: color(headings);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    color: color(headings);
+  }
+
+  + p {
+    margin-top: 0.5em;
+  }
+
+}
+
+h1 {
+  font-weight: bold;
+  font-size: rem($font-xl);
+  margin: 0 0 rem(10px) 0;
+
+  @include respond-to(600, 'max') {
+    font-size: rem($font-l);
+  }
+}
+
+h2 {
+  font-weight: bold;
+  font-size: rem($font-l);
+  margin: 1em 0 rem(10px) 0;
+  color: color(green);
+
+  a {
+    color: color(green);
+
+    &:hover {
+      color: darken(color(green), 10);
+      text-decoration: none;
+    }
+  }
+
+  @include respond-to(400, 'max') {
+    font-size: rem(32px);
+  }
+}
+
+h3 {
+  margin: 1em 0 rem(10px) 0;
+  font-size: rem($font-m);
+  font-weight: bold;
+  color: color(lightgrey);
+}
+
+em, i {
+  font-style: italic;
+}
+
+blockquote {
+  padding: 0 0 0 rem(35px);
+  font-style: italic;
+  border-left: 3px solid color(white);
+  margin: 2.5em 0 2.5em 1.5em;
+  position: relative;
+  width: 120%;
+  left: -14%;
+  font-size: rem($font-m);
+
+  @include respond-to(500, 'max') {
+    margin-left: 0;
+  }
+}
