@@ -1,1 +1,6 @@
-.header {}
+.header {
+  min-width: 270px;
+  max-width: 270px;
+  background-image: url('../imgs/purty_wood.png');
+  background-repeat: repeat-y;
+}

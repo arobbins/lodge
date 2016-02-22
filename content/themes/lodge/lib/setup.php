@@ -110,6 +110,6 @@ function assets() {
 
   wp_enqueue_script('slideout-js', 'https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.11/slideout.min.js', ['jquery'], null, true);
   wp_enqueue_script('modernizr', Assets\asset_path('js/vendor/modernizr.min.js'), [], null, true);
-  wp_enqueue_script('css-js', Assets\asset_path('css/js/app.min.js'), ['jquery'], null, true);
+  wp_enqueue_script('css-js', Assets\asset_path('js/app.min.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

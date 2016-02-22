@@ -38,3 +38,12 @@
         + "Please make sure it is defined in `$breakpoints` map.";
   }
 }
+
+
+@mixin dim {
+  transition: opacity 0.5 ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

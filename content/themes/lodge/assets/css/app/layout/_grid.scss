@@ -4,7 +4,6 @@
 .l-row {
   display: flex;
   flex-flow: row wrap;
-  max-width: rem($container-width);
   width: 100%;
 }
 
@@ -201,10 +200,6 @@
 //
 // Spacing
 //
-.l-fit {
-  flex-grow: 1;
-}
-
 .l-fill {
   flex: 1;
   min-width: 0;

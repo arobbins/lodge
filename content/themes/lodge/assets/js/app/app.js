@@ -4,7 +4,7 @@
 
     var Utils = require('./utils');
 
-    Utils.test();
+    //Utils.test();
 
   });
 
