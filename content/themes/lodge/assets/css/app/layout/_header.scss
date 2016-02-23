@@ -1,6 +1,46 @@
 .header {
-  min-width: 270px;
-  max-width: 270px;
-  background-image: url('../imgs/purty_wood.png');
-  background-repeat: repeat-y;
+  height: 100%;
+  width: $width-header;
+  @extend .pattern-wood;
+
+  @include respond-to(800, 'max') {
+    width: 200px;
+  }
+
+  @include respond-to(500, 'max') {
+    width: 100%;
+    flex-direction: row;
+    background-image: none;
+    justify-content: space-between;
+    padding: 0 1em;
+    height: 100px;
+  }
+}
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  @include respond-to(800, 'max') {
+    width: 200px;
+  }
+
+  @include respond-to(500, 'max') {
+    position: static;
+    width: 100%;
+    @extend .pattern-wood;
+  }
+}
+
+.header-footer {
+  @include respond-to(500, 'max') {
+    display: none;
+  }
+}
+
+
+.header-mobile-icon {
+  @include mobile-menu-icon;
 }

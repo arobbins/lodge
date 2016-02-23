@@ -17,10 +17,10 @@ html, body {
 
 body {
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.4;
   font-size: $font-base;
-  font-family: $font-primary;
-  color: color(red);
+  font-family: helvetica, arial;
+  color: white;
   -webkit-backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,8 +30,7 @@ body {
   }
 
   @include respond-to(600, 'max') {
-    font-size: ($font-base - 2px);
-    line-height: 2;
+    // font-size: ($font-base - 2px);
   }
 }
 

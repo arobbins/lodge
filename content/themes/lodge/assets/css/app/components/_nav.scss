@@ -5,6 +5,15 @@
 
 .menu-primary-wrapper {
   width: 100%;
+
+  @include respond-to(500, 'max') {
+    display: none;
+  }
+
+}
+
+.menu-primary-wrapper-mobile {
+  display: none;  
 }
 
 .menu-primary {
@@ -13,14 +22,30 @@
   list-style: none;
 
   &:after {
-    content: url('../imgs/icon-dinner.svg');
-    margin: 4em 0;
+    content: '';
+    background-image: url('../imgs/icon-dinner.svg');
+    height: 46px;
+    margin: 4em auto;
+    width: 80%;
+    background-size: 100% 100%;
+
+    @include respond-to(500, 'max') {
+      display: none;
+    }
+  }
+
+  @include respond-to(500, 'max') {
+    margin-bottom: 2em;
   }
 }
 
 .menu-item {
   text-transform: uppercase;
   font-size: $font-s;
+
+  @include respond-to(800, 'max') {
+    font-size: $font-xs;
+  }
 
   a {
     color: color(darkred);

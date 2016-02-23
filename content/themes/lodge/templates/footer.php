@@ -1,5 +1,6 @@
-<footer class="content-info">
-  <div class="container">
+<footer class="footer">
+  <!-- <div class="container">
     <?php dynamic_sidebar('sidebar-footer'); ?>
-  </div>
+  </div> -->
+  <?php include(locate_template('components/social-icons/view.php')); ?>
 </footer>

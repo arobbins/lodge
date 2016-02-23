@@ -9,6 +9,11 @@ $icon-font-path: "../fonts/";
 //
 $container-width: 1200px;
 $gutter-width: 2em;
+
+$width-main: 530px;
+$width-header: 270px;
+$width-combined: $width-main + $width-header;
+
 $cols-1: 1;
 $cols-2: 2;
 $cols-3: 3;
@@ -114,9 +119,9 @@ $font-secondary: 'lunchboxregular', $font-primary-fallbacks;
 $font-skitch-shaded: 'skitch_shadedregular', $font-primary-fallbacks;
 $font-skitch-solid: 'skitch_solidregular', $font-primary-fallbacks;
 
-$font-base:   18px;
+$font-base:   17px;
 
-$font-xs:     25px;
+$font-xs:     26px;
 $font-s:      32px;
 $font-m:      40px;
 $font-l:      50px;

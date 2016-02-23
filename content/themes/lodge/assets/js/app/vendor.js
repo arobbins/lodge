@@ -6,11 +6,23 @@
 
     var initCarousel = function() {
       $carousel.slick({
-        autoplay: true,
+        autoplay: false,
         dots: true,
         fade: true,
-        arrows: false
+        arrows: false,
+        pauseOnDotsHover: true,
+        responsive: [
+          {
+            breakpoint: 800,
+            settings: "unslick"
+          }
+        ]
       });
+
+      $carousel.on('breakpoint', function(event, slick, currentSlide, nextSlide){
+        console.log('hit');
+      });
+
     };
 
     return {

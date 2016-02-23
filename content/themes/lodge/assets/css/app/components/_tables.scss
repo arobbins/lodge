@@ -1,9 +1,5 @@
 table {
   width: 100%;
-
-  @include respond-to(700, 'max') {
-    border: none;
-  }
 }
 
 thead {

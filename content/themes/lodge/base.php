@@ -18,10 +18,12 @@ use Roots\Sage\Wrapper;
 
     <div class="l-row l-fill wrapper" role="document">
 
-      <?php
-        do_action('get_header');
-        get_template_part('templates/header');
-      ?>
+      <div class="header-wrapper">
+        <?php
+          do_action('get_header');
+          get_template_part('templates/header');
+        ?>
+      </div>
 
       <main class="main">
         <?php include Wrapper\template_path(); ?>
@@ -39,6 +41,8 @@ use Roots\Sage\Wrapper;
       do_action('get_footer');
 
       include(locate_template('components/carousel/view.php'));
+
+      get_template_part('templates/footer');
 
       wp_footer();
     ?>

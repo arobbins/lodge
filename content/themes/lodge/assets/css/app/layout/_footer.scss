@@ -1,1 +1,12 @@
-.footer {}
+.footer {
+  display: none;
+  padding: 1em;
+  @extend .pattern-wood;
+
+  @include respond-to(500, 'max') {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
