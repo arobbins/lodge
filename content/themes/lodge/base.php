@@ -34,10 +34,12 @@ use Roots\Sage\Wrapper;
       <?php endif; ?>
 
     </div>
-    
+
     <?php
       do_action('get_footer');
-      get_template_part('templates/footer');
+
+      include(locate_template('components/carousel/view.php'));
+
       wp_footer();
     ?>
 

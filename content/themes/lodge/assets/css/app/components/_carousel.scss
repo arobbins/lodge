@@ -1,0 +1,52 @@
+.carousel {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-slide {
+  height: 100%;
+  //background-size: cover;
+}
+
+.carousel-slide-caption {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  color: white;
+  width: 30%;
+  line-height: 1;
+  font-size: $font-s;
+  padding: 0.5em;
+  font-family: $font-secondary;
+
+  p {
+    margin: 0;
+  }
+}
+
+.slick-list,
+.slick-track {
+  height: 100%;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  z-index: 1;
+  left: 50%;
+
+  li {
+    display: inlin-block;
+  }
+
+  button {
+    display: none;
+  }
+
+}

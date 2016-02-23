@@ -3,8 +3,9 @@
   $(function() {
 
     var Utils = require('./utils');
+    var Vendor = require('./vendor');
 
-    //Utils.test();
+    Vendor.initCarousel();
 
   });
 

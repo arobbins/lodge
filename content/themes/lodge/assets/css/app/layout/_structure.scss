@@ -1,9 +1,18 @@
 .wrapper {
   height: 100%;
+  z-index: 1;
 }
 
 .logo-mark {
   width: 55%;
   display: block;
   margin: rem($space-l) 0;
+}
+
+.main {
+  width: 500px;
+  min-width: 500px;
+  padding: 1em;
+  background-color: hsl(2, 47%, 10%);
+  background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.3) 50px, rgba(0,0,0,.3) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.3) 63px, rgba(0,0,0,.3) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.3) 116px, rgba(0,0,0,.3) 166px, rgba(255,255,255,.1) 166px, rgba(255,255,255,.1) 169px, rgba(0,0,0,.3) 169px, rgba(0,0,0,.3) 179px, rgba(255,255,255,.1) 179px, rgba(255,255,255,.1) 182px, rgba(0,0,0,.3) 182px, rgba(0,0,0,.3) 232px, transparent 232px), repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.3) 50px, rgba(0,0,0,.3) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.3) 63px, rgba(0,0,0,.3) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.3) 116px, rgba(0,0,0,.3) 166px, rgba(255,255,255,.1) 166px, rgba(255,255,255,.1) 169px, rgba(0,0,0,.3) 169px, rgba(0,0,0,.3) 179px, rgba(255,255,255,.1) 179px, rgba(255,255,255,.1) 182px, rgba(0,0,0,.3) 182px, rgba(0,0,0,.3) 232px, transparent 232px), repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.1) 5px);
 }
