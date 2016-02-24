@@ -1,3 +1,17 @@
-.btn {}
+.btn {
+  color: white;
+  border: 2px solid white;
+  padding: 0.1em 1.1em;
+  font-size: $font-s;
+  background-color: transparent;
+  font-family: $font-secondary;
+  text-transform: uppercase;
+
+  &:hover {
+    color: color(orange);
+    border: 2px solid color(orange);
+  }
+}
+
 .btn-s {}
 .btn-l {}

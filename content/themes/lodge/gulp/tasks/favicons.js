@@ -5,13 +5,13 @@ var gulp = require('gulp'),
 // Pre and post processing our CSS
 gulp.task('favicons', function() {
   gulp.src(config.paths.favicon.entry).pipe(favicons({
-      appName: "Davis Law Office",
-      appDescription: "Davis Law Office-Minneapolis, MN. A Business Law Firm With A Different Approach.",
-      developerName: "Davis Law Office",
-      developerURL: "http://davismeansbusiness.com",
+      appName: "The Lodge Sasquatch Kitchen",
+      appDescription: "The Lodge Sasquatch Kitchen",
+      developerName: "The Lodge Sasquatch Kitchen",
+      developerURL: "http://thelodgetempe.com",
       background: "#fff",
       path: config.paths.favicon.all,
-      url: "http://davismeansbusiness.com",
+      url: "http://thelodgetempe.com",
       display: "standalone",
       orientation: "portrait",
       version: 1.0,

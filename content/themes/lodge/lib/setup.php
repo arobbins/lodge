@@ -91,6 +91,8 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page(),
+    is_home(),
+    is_single(),
     is_page_template('template-custom.php'),
   ]);
 
@@ -111,6 +113,8 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
 
+
+  wp_enqueue_script('googlemaps-js', '//maps.googleapis.com/maps/api/js?v=3.exp', [], null, true);
   wp_enqueue_script('slickslider-js', '//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', ['jquery'], null, true);
   wp_enqueue_script('slideout-js', 'https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.11/slideout.min.js', ['jquery'], null, true);
   wp_enqueue_script('modernizr', Assets\asset_path('js/vendor/modernizr.min.js'), [], null, true);

@@ -1,2 +1,41 @@
 .form-group {}
 .form-control {}
+
+.gform_wrapper input[type=email],
+.gform_wrapper input[type=number],
+.gform_wrapper input[type=password],
+.gform_wrapper input[type=tel],
+.gform_wrapper input[type=text],
+.gform_wrapper input[type=url],
+.gform_wrapper textarea,
+textarea,
+input {
+  color: #333;
+  padding: 0.5em;
+}
+
+.gform_wrapper input.datepicker.datepicker_with_icon {
+  width: 97% !important;
+}
+
+.gform_wrapper .top_label .gfield_label,
+body .gform_wrapper img.ui-datepicker-trigger {
+  display: none;
+}
+
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type=submit],
+.gform_wrapper input[type=submit],
+button,
+input[type=submit] {
+  @extend .btn;
+}
+
+.gform_title {
+  font-size: $font-m !important;
+}
+
+.gform_wrapper .gform_footer {
+  display: flex;
+  justify-content: center;
+}

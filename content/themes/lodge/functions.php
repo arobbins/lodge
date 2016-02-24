@@ -26,3 +26,49 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+//
+// Get content by ID
+//
+function get_the_content_by_id($post_id) {
+  $page_data = get_page($post_id);
+  if ($page_data) {
+    return $page_data->post_content;
+  }
+  else return false;
+}
+
+
+//
+// Moving Gravity Forms scripts to Footer
+//
+function init_scripts() {
+  return true;
+}
+
+add_filter("gform_init_scripts_footer", "init_scripts");
+
+
+//
+// Hours shortcode
+//
+function hours($atts) {
+  ob_start();
+  include(locate_template('components/hours/view.php'));
+  $content = ob_get_clean();
+  return $content;
+}
+add_shortcode('hours', 'hours');
+
+
+//
+// Maps shortcode
+//
+function map($atts) {
+  ob_start();
+  include(locate_template('components/map/view.php'));
+  $content = ob_get_clean();
+  return $content;
+}
+add_shortcode('map', 'map');

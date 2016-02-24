@@ -6,7 +6,7 @@
 
     var initCarousel = function() {
       $carousel.slick({
-        autoplay: false,
+        autoplay: true,
         dots: true,
         fade: true,
         arrows: false,

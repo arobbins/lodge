@@ -51,9 +51,17 @@ ul, ol, dl {
 //
 // Typography
 //
+a {
+  color: color(orange);
+
+  &:hover {
+    color: color(red);
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-skitch-solid;
-  line-height: 1.4;
+  line-height: 1.2;
   color: white;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -82,8 +90,10 @@ h2 {
   font-weight: bold;
   font-size: rem($font-l);
   margin: 1em 0 rem(10px) 0;
+  color: white;
 
   a {
+    color: white;
 
     &:hover {
       text-decoration: none;
@@ -99,6 +109,13 @@ h3 {
   margin: 1em 0 rem(10px) 0;
   font-size: rem($font-m);
   font-weight: bold;
+}
+
+h4 {
+  width: 100%;
+  margin: 0 0 1em 0;
+  font-size: rem($font-m);
+  font-family: $font-secondary;
 }
 
 em, i {
