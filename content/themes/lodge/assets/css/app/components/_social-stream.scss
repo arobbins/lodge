@@ -1,0 +1,16 @@
+.ff-layout-grid .ff-stream-wrapper {
+  margin-left: 290px;
+  margin-top: 20px;
+
+  @include respond-to(500, 'max') {
+    margin-left: 0;
+  }
+}
+
+.ff-stream,
+#ff-stream-1,
+#ff-stream-1 .ff-search input,
+#ff-stream-1.ff-layout-compact .picture-item__inner {
+  background-color: darken(color(darkred), 14) !important;
+  padding-top: 0;
+}

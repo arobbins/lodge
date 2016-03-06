@@ -5,9 +5,16 @@
   padding: 0;
   height: 100%;
   width: 100%;
+  z-index: -1;
 
-  @include respond-to(800, 'max') {
+  @include respond-to(1100, 'max') {
     display: none;
+  }
+}
+
+.home .carousel {
+  @include respond-to(800, 'max') {
+    display: block;
   }
 }
 
@@ -17,6 +24,18 @@
   background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center;
+}
+
+.carousel-slide-bg {
+  @include respond-to(800, 'max') {
+    height: 100%;
+    background-position-x: -50px;
+  }
+
+  @include respond-to(500, 'max') {
+    background-position-x: -170px;
+  }
+
 }
 
 .carousel-slide-caption {
@@ -95,4 +114,9 @@
     }
   }
 
+}
+
+.home .slick-dots {
+  left: 270px;
+  width: calc(100% - #{270px});
 }

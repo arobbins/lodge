@@ -10,10 +10,11 @@
         dots: true,
         fade: true,
         arrows: false,
+        autoplaySpeed: 4000,
         pauseOnDotsHover: true,
         responsive: [
           {
-            breakpoint: 800,
+            breakpoint: 1100,
             settings: "unslick"
           }
         ]

@@ -10,8 +10,29 @@
   &:hover {
     color: color(orange);
     border: 2px solid color(orange);
+
+    a {
+      color: color(orange);
+    }
   }
 }
 
-.btn-s {}
-.btn-l {}
+//
+// Needed because WordPress wraps span tags around an anchor
+//
+span.btn {
+  padding: 0;
+  display: inline-block;
+
+  a {
+    padding: 0.1em 1.1em;
+    color: white;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+
+    &:hover {
+      color: color(orange);
+    }
+  }
+}

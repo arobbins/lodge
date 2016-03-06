@@ -1,6 +1,20 @@
 .form-group {}
 .form-control {}
 
+input[type=search] {
+  width: 96%;
+  margin: 1em 0;
+}
+
+#ui-datepicker-div {
+  display: none;
+}
+
+
+.gform_wrapper {
+  max-width: 100%;
+}
+
 .gform_wrapper input[type=email],
 .gform_wrapper input[type=number],
 .gform_wrapper input[type=password],
@@ -18,6 +32,28 @@ input {
   width: 97% !important;
 }
 
+
+.gform_wrapper label.gfield_label+div.ginput_container {
+  margin-bottom: 1em;
+}
+
+.ginput_full.address_line_1,
+.ginput_full.address_line_2 {
+  margin-bottom: 1em;
+  display: inline-block;
+  width: 100%;
+}
+
+.ginput_left.address_city {
+  margin-bottom: 1em;
+  display: inline-block;
+}
+
+.ginput_complex.ginput_container.has_first_name.has_last_name {
+  width: 98.5%;
+}
+
+.gform_wrapper .ginput_complex label,
 .gform_wrapper .top_label .gfield_label,
 body .gform_wrapper img.ui-datepicker-trigger {
   display: none;
@@ -38,4 +74,54 @@ input[type=submit] {
 .gform_wrapper .gform_footer {
   display: flex;
   justify-content: center;
+}
+
+
+.gform_confirmation_message {
+  background-color: color(green);
+  padding: 0.5em;
+  text-align: center;
+}
+
+.gform_wrapper div.validation_error {
+  color: white;
+  font-size: $font-base;
+  font-weight: normal;
+  background-color: #D75151;
+  margin-bottom: 1.6em;
+  border: none;
+  padding: 0.5em;
+  clear: both;
+  text-align: center;
+  width: 100%;
+}
+
+
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+  background-color: transparent;
+  margin-bottom: .375em!important;
+  padding: 0;
+  border: none;
+}
+
+.gform_wrapper .validation_message {
+  background-color: transparent;
+  color: #D75151;
+}
+
+.gfield_error input,
+.gfield_error textarea {
+  border: 1px solid #D75151;
+}
+
+.gform_wrapper.gform_validation_error .gfield_error .ginput_container {
+  margin-bottom: 0;
+}
+
+.gform_wrapper.gform_validation_error .ginput_container+.gfield_description.validation_message {
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: 1em;
+  margin-top: 0;
+  padding-top: 0;
 }

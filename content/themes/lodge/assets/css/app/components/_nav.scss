@@ -13,7 +13,7 @@
 }
 
 .menu-primary-wrapper-mobile {
-  display: none;  
+  display: none;
 }
 
 .menu-primary {
@@ -21,22 +21,50 @@
   font-family: $font-skitch-solid;
   list-style: none;
 
+  @include respond-to(500, 'max') {
+    margin-bottom: 2em;
+  }
+}
+
+.nav-menu {
+  text-align: center;
+  font-family: $font-skitch-solid;
+  text-transform: uppercase;
+  font-size: $font-s;
+  color: color(darkred);
+  text-decoration: none;
+  padding: 0.2em 0.8em;
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 2em;
+
+  @include respond-to(800, 'max') {
+    font-size: $font-xs;
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    height: 16px;
+    border-top: 1px solid color(red);
+  }
+
   &:after {
     content: '';
     background-image: url('../imgs/icon-dinner.svg');
     height: 46px;
-    margin: 4em auto;
-    width: 80%;
+    width: 100%;
+    display: inline-block;
     background-size: 100% 100%;
-
+    margin-top: 20px;
+    
     @include respond-to(500, 'max') {
       display: none;
     }
   }
 
-  @include respond-to(500, 'max') {
-    margin-bottom: 2em;
-  }
 }
 
 .menu-item {

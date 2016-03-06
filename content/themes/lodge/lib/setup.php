@@ -15,7 +15,7 @@ function setup() {
   add_theme_support('soil-disable-trackbacks');
   add_theme_support('soil-google-analytics', 'UA-XXXXX-Y');
   add_theme_support('soil-jquery-cdn');
-  add_theme_support('soil-js-to-footer');
+  //add_theme_support('soil-js-to-footer');
   add_theme_support('soil-nav-walker');
   add_theme_support('soil-nice-search');
   add_theme_support('soil-relative-urls');
@@ -91,6 +91,7 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page(),
+    is_search(),
     is_home(),
     is_single(),
     is_page_template('template-custom.php'),

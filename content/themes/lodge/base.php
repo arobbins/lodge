@@ -9,12 +9,6 @@ use Roots\Sage\Wrapper;
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
   <body <?php body_class('l-col'); ?>>
-    <!--[if IE]>
-      <div class="alert alert-warning">
-        <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
-      </div>
-    <![endif]-->
-
 
     <div class="l-row l-fill wrapper" role="document">
 
@@ -41,6 +35,8 @@ use Roots\Sage\Wrapper;
       do_action('get_footer');
 
       include(locate_template('components/carousel/view.php'));
+
+      include(locate_template('components/social-stream/view.php'));
 
       get_template_part('templates/footer');
 

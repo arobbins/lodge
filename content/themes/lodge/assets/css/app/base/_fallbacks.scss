@@ -175,6 +175,37 @@
 
   }
 
+  .logo {
+    margin: 1em auto 1em auto;
+  }
+
+  .header-footer {
+    text-align: center;
+  }
+
+  .ff-stream {
+    display: block;
+    float: left;
+    width: 100%;
+    z-index: 99999999;
+  }
+
+  .wrapper {
+    height: 100%;
+    z-index: 1;
+    position: relative;
+    display: block;
+  }
+
+  .header-wrapper {
+    height: 100%;
+    position: absolute;
+  }
+
+  .home {
+    width: 100%;
+  }
+
 }
 
 .flexboxlegacy {}

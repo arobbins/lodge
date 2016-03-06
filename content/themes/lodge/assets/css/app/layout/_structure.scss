@@ -2,6 +2,10 @@
   height: 100%;
   z-index: 1;
 
+  @include respond-to(1100, 'max') {
+    position: relative;
+  }
+
   @include respond-to(500, 'max') {
     flex-direction: column;
   }
@@ -35,10 +39,15 @@
     width: 100%;
   }
 
-  @include respond-to(800, 'max') {
-    width: calc(100% - 200px);
+  @include respond-to(1100, 'max') {
+    width: calc(100% - #{$width-header});
     min-width: auto;
-    transform: translateX(200px);
+    transform: translateX($width-header);
+  }
+
+  @include respond-to(800, 'max') {
+    width: calc(100% - #{$width-header-sm});
+    transform: translateX($width-header-sm);
   }
 
   @include respond-to(500, 'max') {
@@ -47,4 +56,8 @@
     transform: none;
     flex: 1;
   }
+}
+
+.home .main {
+  background: transparent;
 }

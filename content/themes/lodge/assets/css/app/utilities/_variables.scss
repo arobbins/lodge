@@ -12,6 +12,8 @@ $gutter-width: 2em;
 
 $width-main: 530px;
 $width-header: 270px;
+$width-header-sm: 200px;
+
 $width-combined: $width-main + $width-header;
 
 $cols-1: 1;
@@ -47,7 +49,8 @@ $colors: (
   brown: #624630,
   orange: #f36f23,
   red: #a13925,
-  darkred: #6e0000
+  darkred: #6e0000,
+  green: #4BA949
 );
 
 
@@ -125,7 +128,7 @@ $font-xs:     26px;
 $font-s:      32px;
 $font-m:      40px;
 $font-l:      50px;
-$font-xl:     64px;
+$font-xl:     58px;
 
 $btn-s:       22px;
 $btn-l:       32px;

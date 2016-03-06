@@ -1,0 +1,14 @@
+.btn {
+  color: white;
+  border: 2px solid white;
+  padding: 0.1em 1.1em;
+  font-size: $font-s;
+  background-color: transparent;
+  font-family: 'lunchboxregular', Tahoma, Times, sans-serif;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  color: #f36f23;
+  border: 2px solid #f36f23;
+}

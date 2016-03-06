@@ -1,3 +1,5 @@
+<?php include(locate_template('templates/breadcrumbs.php')); ?>
+
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
     <header>

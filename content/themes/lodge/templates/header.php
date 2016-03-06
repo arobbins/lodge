@@ -18,6 +18,9 @@
         wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'l-col nav nav-main menu menu-primary']);
       endif;
     ?>
+
+    <a href="<?php the_field('theme_menu_link', 'option'); ?>" class="nav-menu"><?php the_field('theme_menu_text', 'option'); ?></a>
+
   </nav>
 
   <footer class="header-footer">
