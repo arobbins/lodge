@@ -8,22 +8,117 @@
   z-index: -1;
 
   @include respond-to(1100, 'max') {
-    display: none;
+    // display: none;
   }
 }
 
+.slick-track {
+  width: 100% !important;
+}
+
+.tp-carousel-wrapper {
+  left: 0 !important;
+  width: calc(100% - #{$width-header});
+
+  @include respond-to(800, 'max') {
+    left: 0 !important;
+    width: calc(100% - #{$width-header-sm});
+  }
+
+  @include respond-to(500, 'max') {
+    width: 100% !important;
+  }
+}
+
+
+#rev_slider_1_1_wrapper,
 .home .carousel {
+  left: $width-header;
+  width: calc(100% - #{$width-header});
+
   @include respond-to(800, 'max') {
     display: block;
+    left: $width-header-sm;
+    width: calc(100% - #{$width-header-sm});
   }
+
+  @include respond-to(500, 'max') {
+    left: 0 !important;
+    width: 100% !important;
+  }
+
 }
 
 .carousel-slide {
-  // height: 100%;
-  // background-size: 100% 100%;
-  background-size:     cover;
-  background-repeat:   no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
+}
+
+.tp-caption.Font-Primary {
+  @include respond-to(1100, 'max') {
+    // font-size: 70px;
+    // position: relative;
+    // left: 28%;
+    // width: 70%;
+    // display: block;
+    // margin: 0 auto;
+  }
+}
+
+
+#rev_slider_1_1_wrapper {
+  left: 0 !important;
+  width: 100% !important;
+
+  @include respond-to(800, 'max') {
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.rev_slider li.tp-revslider-slidesli {
+  // width: 100% !important;
+  // left: $width-header !important;
+  // left: 300px !important;
+  //transform: translateX($width-header) !important;
+
+  @include respond-to(800, 'max') {
+    //transform: translateX($width-header-sm) !important;
+  }
+
+  @include respond-to(500, 'max') {
+    transform: translateX(0) !important;
+  }
+}
+
+.custom .tp-bullet {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.tp-bullets {
+  left: 43% !important;
+
+  @include respond-to(1100, 'max') {
+    left: 37% !important;
+  }
+
+  @include respond-to(800, 'max') {
+    left: 34% !important;
+  }
+
+  @include respond-to(500, 'max') {
+    left: 27% !important;
+  }
+
+  @include respond-to(400, 'max') {
+    left: 24% !important;
+  }
+}
+
+.tp-bullet.selected {
+  background: rgb(96, 96, 96);
 }
 
 .carousel-slide-bg {
@@ -69,7 +164,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  left: $width-combined;
+  left: $width-combined + 30;
   text-align: center;
   width: calc(100% - #{$width-combined});
 
@@ -117,6 +212,6 @@
 }
 
 .home .slick-dots {
-  left: 270px;
-  width: calc(100% - #{270px});
+  left: $width-header;
+  width: calc(100% - #{$width-header});
 }
