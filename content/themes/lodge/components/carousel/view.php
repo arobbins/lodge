@@ -37,12 +37,9 @@
       endif;
 
     } else { ?>
-      <!-- <li style="background-image:url('<?php the_field('theme_default_background', 'option'); ?>');" class="carousel-slide carousel-slide-bg">
-        <figcaption class="carousel-slide-caption">
-          <?php the_sub_field('theme_default_carousel_slide_caption'); ?>
-        </figcaption>
-      </li> -->
+
       <?php echo do_shortcode('[rev_slider alias="home-slider"]'); ?>
+
     <?php }
 
   ?>
