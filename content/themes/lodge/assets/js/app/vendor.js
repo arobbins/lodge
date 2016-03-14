@@ -10,25 +10,19 @@
         dots: true,
         fade: true,
         arrows: false,
-        autoplaySpeed: 4000,
-        pauseOnDotsHover: true,
-        responsive: [
-          {
-            breakpoint: 1100,
-            settings: "unslick"
-          }
-        ]
+        autoplaySpeed: 5000,
+        pauseOnDotsHover: true
       });
 
       $carousel.on('breakpoint', function(event, slick, currentSlide, nextSlide){
-        console.log('hit');
+        // console.log('hit');
       });
 
     };
 
     return {
       initCarousel: initCarousel
-    }
+    };
 
   })();
 

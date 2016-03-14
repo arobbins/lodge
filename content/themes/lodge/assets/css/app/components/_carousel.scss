@@ -12,10 +12,6 @@
   }
 }
 
-.slick-track {
-  width: 100% !important;
-}
-
 .tp-carousel-wrapper {
   left: 0 !important;
   width: calc(100% - #{$width-header});
@@ -35,6 +31,7 @@
 .home .carousel {
   left: $width-header;
   width: calc(100% - #{$width-header});
+//  margin-top: -100px;
 
   @include respond-to(800, 'max') {
     display: block;
