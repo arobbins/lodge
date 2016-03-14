@@ -26,7 +26,6 @@
   }
 }
 
-
 #rev_slider_1_1_wrapper,
 .home .carousel {
   left: $width-header;
@@ -55,6 +54,7 @@
 #rev_slider_1_1_wrapper {
   left: 0 !important;
   width: 100% !important;
+  height: 100% !important;
 
   @include respond-to(800, 'max') {
     left: 0 !important;

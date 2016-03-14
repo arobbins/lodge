@@ -5,12 +5,12 @@
     var $body = $('body');
 
     var test = function() {
-      console.table('HELLOOOO', 'yo');
+
     };
 
     return {
       test: test
-    }
+    };
 
   })();
 
