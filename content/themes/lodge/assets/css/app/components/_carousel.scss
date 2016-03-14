@@ -52,18 +52,6 @@
   background-position: center center;
 }
 
-.tp-caption.Font-Primary {
-  @include respond-to(1100, 'max') {
-    // font-size: 70px;
-    // position: relative;
-    // left: 28%;
-    // width: 70%;
-    // display: block;
-    // margin: 0 auto;
-  }
-}
-
-
 #rev_slider_1_1_wrapper {
   left: 0 !important;
   width: 100% !important;
@@ -75,15 +63,6 @@
 }
 
 .rev_slider li.tp-revslider-slidesli {
-  // width: 100% !important;
-  // left: $width-header !important;
-  // left: 300px !important;
-  //transform: translateX($width-header) !important;
-
-  @include respond-to(800, 'max') {
-    //transform: translateX($width-header-sm) !important;
-  }
-
   @include respond-to(500, 'max') {
     transform: translateX(0) !important;
   }
