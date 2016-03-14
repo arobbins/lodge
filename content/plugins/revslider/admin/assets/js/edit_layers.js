@@ -2411,7 +2411,7 @@ var UniteLayersRev = new function(){
 							sgfamilies.push(font);
 						}
 						
-						if (gfamilies.length>0)
+						if (gfamilies!==null && gfamilies.length>0)
 						tpWebFont.load({
 							google:{
 								families:gfamilies
@@ -3079,7 +3079,7 @@ var UniteLayersRev = new function(){
 				var layers_to_add = t.get_layers_to_add_through_actions(import_slides[slider_id][slide_id]['layers'], unique_layer);
 				
 				//get the data, then use it to add a new layer
-				if(layers_to_add.length > 0){
+				if(layers_to_add!==null && layers_to_add.length > 0){
 					if(layers_to_add.length > 1 && confirm(rev_lang.import_all_layer_from_actions)){
 						var dependencies = [];
 						dependencies = t.get_action_dependencies(li, slide_id, dependencies);
@@ -4348,7 +4348,7 @@ var UniteLayersRev = new function(){
 		else
 			var htmlLayer = jQuery("#demo_layer_"+serial);
 
-		if(htmlLayer.length == 0)
+		if(htmlLayer!==null && htmlLayer.length == 0)
 			UniteAdminRev.showErrorMessage("Html Layer with serial: "+serial+" not found!");
 
 		return(htmlLayer);
@@ -5345,6 +5345,8 @@ var UniteLayersRev = new function(){
 		/*if(objLayer.type == 'no_edit'){
 			
 		}*/
+
+
 		
 		
 
@@ -5372,19 +5374,19 @@ var UniteLayersRev = new function(){
 		//set Loop Animations
 		objLayer.loop_animation = objLayer.loop_animation 	|| "none";
 		objLayer.loop_easing = objLayer.loop_easing 		|| "linearEaseNone";
-		objLayer.loop_speed = objLayer.loop_speed 			|| 2;
-		objLayer.loop_startdeg = objLayer.loop_startdeg 	|| -20;
-		objLayer.loop_enddeg = objLayer.loop_enddeg 		|| 20;
-		objLayer.loop_xorigin = objLayer.loop_xorigin 		|| 50;
-		objLayer.loop_yorigin = objLayer.loop_yorigin 		|| 50;
-		objLayer.loop_xstart = objLayer.loop_xstart 		|| 0;
-		objLayer.loop_xend = objLayer.loop_xend 			|| 0;
-		objLayer.loop_ystart = objLayer.loop_ystart 		|| 0;
-		objLayer.loop_yend = objLayer.loop_yend 			|| 0;
-		objLayer.loop_zoomstart = objLayer.loop_zoomstart 	|| 1;
-		objLayer.loop_zoomend = objLayer.loop_zoomend 		|| 1;
-		objLayer.loop_angle = objLayer.loop_angle 			|| 0;
-		objLayer.loop_radius = objLayer.loop_radius 		|| 10;
+		objLayer.loop_speed = objLayer.loop_speed != undefined ? objLayer.loop_speed :  2;
+		objLayer.loop_startdeg = objLayer.loop_startdeg != undefined ? objLayer.loop_startdeg : -20;
+		objLayer.loop_enddeg = objLayer.loop_enddeg != undefined ? 	objLayer.loop_enddeg : 20;
+		objLayer.loop_xorigin = objLayer.loop_xorigin != undefined ? objLayer.loop_xorigin : 50;
+		objLayer.loop_yorigin = objLayer.loop_yorigin != undefined ? objLayer.loop_yorigin : 50;
+		objLayer.loop_xstart = objLayer.loop_xstart != undefined ? objLayer.loop_xstart : 0;
+		objLayer.loop_xend = objLayer.loop_xend != undefined ? objLayer.loop_xend : 0;
+		objLayer.loop_ystart = objLayer.loop_ystart != undefined ? objLayer.loop_ystart : 0;
+		objLayer.loop_yend = objLayer.loop_yend != undefined ? objLayer.loop_yend : 0;
+		objLayer.loop_zoomstart = objLayer.loop_zoomstart != undefined ? objLayer.loop_zoomstart : 1;
+		objLayer.loop_zoomend = objLayer.loop_zoomend != undefined ? objLayer.loop_zoomend : 1;
+		objLayer.loop_angle = objLayer.loop_angle != undefined ? objLayer.loop_angle : 0;
+		objLayer.loop_radius = objLayer.loop_radius != undefined ? objLayer.loop_radius : 10;
 		
 		objLayer.html_tag = objLayer.html_tag 		|| "div";
 		objLayer.parallax_layer_ddd_zlevel = objLayer.parallax_layer_ddd_zlevel 		|| "front";
@@ -5454,8 +5456,8 @@ var UniteLayersRev = new function(){
 		objLayer.easing = objLayer.easing || "Power2.easeInOut";
 		objLayer.split = objLayer.split || "none";
 		objLayer.endsplit = objLayer.endsplit || "none";
-		objLayer.splitdelay = objLayer.splitdelay || 10;
-		objLayer.endsplitdelay = objLayer.endsplitdelay || 10;
+		objLayer.splitdelay = objLayer.splitdelay != undefined ? objLayer.splitdelay : 10;
+		objLayer.endsplitdelay = objLayer.endsplitdelay != undefined ? objLayer.endsplitdelay : 10;
 		
 		objLayer = t.getVal(objLayer, 'max_height') == undefined ? 
 			t.setVal(objLayer, 'max_height', "auto", true) : 
@@ -5491,8 +5493,8 @@ var UniteLayersRev = new function(){
 
 		// ORIGIN AND 2D ROTATION
 		objLayer['2d_rotation'] = objLayer['2d_rotation'] == undefined && isInit ? 0 : objLayer['2d_rotation'];
-		objLayer['2d_origin_x'] = objLayer['2d_origin_x'] || 50;
-		objLayer['2d_origin_y'] = objLayer['2d_origin_y'] || 50;
+		objLayer['2d_origin_x'] = objLayer['2d_origin_x'] != undefined ? objLayer['2d_origin_x'] : 50;
+		objLayer['2d_origin_y'] = objLayer['2d_origin_y'] != undefined ?  objLayer['2d_origin_y'] : 50;
 		
 		
 		if(t.getVal(objLayer, 'whitespace') == undefined){
@@ -5564,12 +5566,15 @@ var UniteLayersRev = new function(){
 		objLayer['image-size'] = objLayer['image-size'] || 'auto';
 		
 		//add time		
-		objLayer.time = objLayer.time || getNextTime();		
+		
+		objLayer.time = objLayer.time != undefined ? objLayer.time : getNextTime();				
 		objLayer.time = Number(objLayer.time);	//casting
 
+		
+
 		// END ANIMATION		
-		objLayer.endspeed = objLayer.endspeed || initSpeed;		
-		objLayer.endtime = objLayer.endtime || parseInt(g_slideTime,0)+parseInt(objLayer.endspeed,0);		
+		objLayer.endspeed = objLayer.endspeed!=undefined ? objLayer.endspeed : initSpeed;		
+		objLayer.endtime = objLayer.endtime!=undefined ? objLayer.endtime : parseInt(g_slideTime,0)+parseInt(objLayer.endspeed,0);		
 		objLayer.endanimation = objLayer.endanimation || 'fadeout';		
 		objLayer.endeasing = objLayer.endeasing || jQuery("#layer_endeasing").val();
 
@@ -6362,7 +6367,7 @@ var UniteLayersRev = new function(){
 		var el = jQuery('.slide_layer.layer_selected .innerslide_layer');
 
 
-		if (el!=undefined && el.length>0) {
+		if (el!=undefined && el!==null && el.length>0) {
 			try{el.rotatable("destroy");} 
 			catch(e) {}
 			el.rotatable({
@@ -6919,7 +6924,7 @@ var UniteLayersRev = new function(){
 	var updateHtmlSortboxFromObject = function(serial){
 
 
-		serial = serial || selectedLayerSerial;
+		serial = serial!=undefined ? serial : selectedLayerSerial;
 
 		var objLayer = t.getLayer(serial),
 			htmlSortItem = u.getHtmlSortItemFromSerial(serial);
@@ -8097,7 +8102,7 @@ var UniteLayersRev = new function(){
 				jQuery(this).append(jQuery('<option data-mytype="'+clayers[key].type+'"></option>').val(clayers[key]['unique_id']).text(clayers[key].alias));
 			}
 			
-			if(initStaticLayers.length > 0){
+			if(initStaticLayers !== null && initStaticLayers.length > 0){
 				jQuery(this).append(jQuery('<option data-mytype="all" disabled="disabled"></option>').text(rev_lang.static_layers));
 				for(var key in initStaticLayers){
 					jQuery(this).append(jQuery('<option data-mytype="'+initStaticLayers[key].type+'"></option>').val('static-'+initStaticLayers[key]['unique_id']).text(initStaticLayers[key].alias));

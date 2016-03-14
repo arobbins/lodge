@@ -8,7 +8,11 @@
 }
 
 .home .ff-stream {
-  transform: translateY(-160px);
+  transform: translateY(-200px);
+  // display: none;
+  @include respond-to(500, 'max') {
+    transform: translateY(0px);
+  }
 }
 
 .ff-stream,
@@ -17,4 +21,8 @@
 #ff-stream-1.ff-layout-compact .picture-item__inner {
   background-color: darken(color(darkred), 14) !important;
   padding-top: 0;
+}
+
+.home .ff-loader {
+  left: 59%;
 }

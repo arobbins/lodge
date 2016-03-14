@@ -1,6 +1,6 @@
 /********************************************
  * REVOLUTION 5.1.6 EXTENSION - PARALLAX
- * @version: 1.3 (14.01.2016)
+ * @version: 1.4 (10.03.2016)
  * @requires jquery.themepunch.revolution.js
  * @author ThemePunch
 *********************************************/
@@ -39,10 +39,7 @@ jQuery.extend(true,_R, {
 			}
 		}
 		
-		
-		opt.li.each(function() {
-			var li = jQuery(this);
-							
+		function setDDDInContainer(li) {
 			if (_.type=="3D" || _.type=="3d") {
 				li.find('.slotholder').wrapAll('<div class="dddwrapper" style="width:100%;height:100%;position:absolute;top:0px;left:0px;overflow:hidden"></div>');				
 				li.find('.tp-parallax-wrap').wrapAll('<div class="dddwrapper-layer" style="width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:5;overflow:'+_.ddd_layer_overflow+';"></div>');				
@@ -67,8 +64,16 @@ jQuery.extend(true,_R, {
 				punchgs.TweenLite.set(dddwl,{force3D:"auto",transformOrigin:"50% 50%",zIndex:5});					
 				punchgs.TweenLite.set(opt.ul,{transformStyle:"preserve-3d",transformPerspective:1600});					
 			}
-						
+		}
+
+		opt.li.each(function() {
+			setDDDInContainer(jQuery(this));						
 		});
+
+		if (_.type=="3D" || _.type=="3d" && opt.c.find('.tp-static-layers').length>0) {
+			punchgs.TweenLite.set(opt.c.find('.tp-static-layers'),{top:0, left:0,width:"100%",height:"100%"});
+			setDDDInContainer(opt.c.find('.tp-static-layers'));
+		}
 
 		for (var i = 1; i<=_.levels.length;i++)				
 			opt.c.find('.rs-parallaxlevel-'+i).each(function() {					
@@ -154,8 +159,8 @@ jQuery.extend(true,_R, {
 				});
 
 				if (_.type=="3D" || _.type=="3d") {
-					var sctor = '.tp-revslider-slidesli .dddwrapper, .dddwrappershadow, .tp-revslider-slidesli .dddwrapper-layer';
-					if (opt.sliderType==="carousel") sctor = ".tp-revslider-slidesli .dddwrapper, .tp-revslider-slidesli .dddwrapper-layer";
+					var sctor = '.tp-revslider-slidesli .dddwrapper, .dddwrappershadow, .tp-revslider-slidesli .dddwrapper-layer, .tp-static-layers .dddwrapper-layer';
+					if (opt.sliderType==="carousel") sctor = ".tp-revslider-slidesli .dddwrapper, .tp-revslider-slidesli .dddwrapper-layer, .tp-static-layers .dddwrapper-layer";
 					opt.c.find(sctor).each(function() {										
 						var t = jQuery(this),
 							pl = _.levels[_.levels.length-1]/200,										
@@ -228,8 +233,8 @@ jQuery.extend(true,_R, {
 					});
 					
 					if (_.type=="3D" || _.type=="3d") {
-						var sctor = '.tp-revslider-slidesli .dddwrapper, .dddwrappershadow, .tp-revslider-slidesli .dddwrapper-layer';
-						if (opt.sliderType==="carousel") sctor = ".tp-revslider-slidesli .dddwrapper, .tp-revslider-slidesli .dddwrapper-layer";
+						var sctor = '.tp-revslider-slidesli .dddwrapper, .dddwrappershadow, .tp-revslider-slidesli .dddwrapper-layer, .tp-static-layers .dddwrapper-layer';
+						if (opt.sliderType==="carousel") sctor = ".tp-revslider-slidesli .dddwrapper, .tp-revslider-slidesli .dddwrapper-layer, .tp-static-layers .dddwrapper-layer";
 						opt.c.find(sctor).each(function() {			
 							var t = jQuery(this),
 								pl = _.levels[_.levels.length-1]/200
@@ -293,7 +298,7 @@ jQuery.extend(true,_R, {
 
 	//	-	SET POST OF SCROLL PARALLAX	-
 	scrollHandling : function(opt,fromMouse) {	
-	
+		
 		opt.lastwindowheight = opt.lastwindowheight || jQuery(window).height();
 
 		var t = opt.c.offset().top,
@@ -366,7 +371,7 @@ jQuery.extend(true,_R, {
 				});		
 
 			opt.c.find('.tp-revslider-slidesli .slotholder, .tp-revslider-slidesli .rs-background-video-layer').each(function() {	
-			console.log("hey")		
+			
 				var t = jQuery(this),
 					l = t.data('bgparallax') || opt.parallax.bgparallax;				
 					l = l == "on" ? 1 : l;						

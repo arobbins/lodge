@@ -284,7 +284,7 @@ class RevSliderOutput {
 		}else{
 			$slides = $this->slider->getSlidesForOutput($publishedOnly,$this->sliderLang,$gal_ids);
 			
-			if(!empty($gal_ids)){ //add slides from the images
+			if(!empty($gal_ids) && $gal_ids[0]){ //add slides from the images
 				if(count($slides) > 0){ //check if we have at least one slide. If not, then it may result in errors here
 					if(count($gal_ids) !== count($slides)){ //set slides to the same amount as
 						if(count($gal_ids) < count($slides)){
@@ -3923,18 +3923,18 @@ class RevSliderOutput {
 					echo preg_replace( "/\r|\n/", "", $arr_tmp);
 					echo '\','."\n";
 					echo '								left: {'."\n";
+					echo (in_array($this->slider->getParam('leftarrow_position', 'slider'),array('layergrid','grid'))) ? '									container:"layergrid",'."\n" : '';
 					echo '									h_align:"'. esc_attr($this->slider->getParam('leftarrow_align_hor','left')) .'",'."\n";
 					echo '									v_align:"'. esc_attr($this->slider->getParam('leftarrow_align_vert','center')) .'",'."\n";
 					echo '									h_offset:'. esc_attr($this->slider->getParam('leftarrow_offset_hor','20',RevSlider::FORCE_NUMERIC)) .','."\n";
-					echo '									v_offset:'. esc_attr($this->slider->getParam('leftarrow_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";
-					echo ($this->slider->getParam('leftarrow_position', 'slider') == 'layergrid') ? '									container:"layergrid"'."\n" : '';
+					echo '									v_offset:'. esc_attr($this->slider->getParam('leftarrow_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";										
 					echo '								},'."\n";
 					echo '								right: {'."\n";
+					echo (in_array($this->slider->getParam('rightarrow_position', 'slider'),array('layergrid','grid'))) ? '									container:"layergrid",'."\n" : '';
 					echo '									h_align:"'. esc_attr($this->slider->getParam('rightarrow_align_hor','right')).'",'."\n";
 					echo '									v_align:"'. esc_attr($this->slider->getParam('rightarrow_align_vert','center')).'",'."\n";
 					echo '									h_offset:'. esc_attr($this->slider->getParam('rightarrow_offset_hor','20',RevSlider::FORCE_NUMERIC)).','."\n";
-					echo '									v_offset:'. esc_attr($this->slider->getParam('rightarrow_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";
-					echo ($this->slider->getParam('rightarrow_position', 'slider') == 'layergrid') ? '									container:"layergrid"'."\n" : '';
+					echo '									v_offset:'. esc_attr($this->slider->getParam('rightarrow_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";					
 					echo '								}'."\n";
 					echo '							}'."\n";
 				}
@@ -3979,12 +3979,12 @@ class RevSliderOutput {
 						echo '								hide_delay_mobile:'. esc_attr($this->slider->getParam('hide_bullets_mobile','1200',RevSlider::FORCE_NUMERIC)).','."\n";
 					}
 					echo '								direction:"'. esc_attr($this->slider->getParam('bullets_direction','horizontal')).'",'."\n";
+					echo (in_array($this->slider->getParam('bullets_position', 'slider'),array('layergrid','grid'))) ? '									container:"layergrid",'."\n" : '';
 					echo '								h_align:"'. esc_attr($this->slider->getParam('bullets_align_hor','right')).'",'."\n";
 					echo '								v_align:"'. esc_attr($this->slider->getParam('bullets_align_vert','center')).'",'."\n";
 					echo '								h_offset:'. esc_attr($this->slider->getParam('bullets_offset_hor','20',RevSlider::FORCE_NUMERIC)).','."\n";
 					echo '								v_offset:'. esc_attr($this->slider->getParam('bullets_offset_vert','0',RevSlider::FORCE_NUMERIC)).','."\n";
-					echo '								space:'. esc_attr($this->slider->getParam('bullets_space','5',RevSlider::FORCE_NUMERIC)).','."\n";
-					echo ($this->slider->getParam('bullets_position', 'slider') == 'layergrid') ? '								container:"layergrid"'."\n" : '';
+					echo '								space:'. esc_attr($this->slider->getParam('bullets_space','5',RevSlider::FORCE_NUMERIC)).','."\n";					
 					echo '								tmp:\'';
 					echo preg_replace( "/\r|\n/", "", $bul_tmp);
 					echo '\''."\n";
@@ -4044,14 +4044,14 @@ class RevSliderOutput {
 					echo ($this->slider->getParam('span_thumbnails_wrapper','off') == 'on') ? 'true' : 'false';
 					echo ','."\n";
 					echo '								position:"'. esc_attr($this->slider->getParam('thumbnails_inner_outer','inner')).'",'."\n";
+					if($this->slider->getParam('thumbnails_inner_outer','inner') == 'inner'){
+						echo (in_array($this->slider->getParam('thumbnails_position', 'slider'),array('layergrid','grid'))) ? '									container:"layergrid",'."\n" : '';					
+					}
 					echo '								space:'. esc_attr($this->slider->getParam('thumbnails_space','5',RevSlider::FORCE_NUMERIC)).','."\n";
 					echo '								h_align:"'. esc_attr($this->slider->getParam('thumbnails_align_hor','left')).'",'."\n";
 					echo '								v_align:"'. esc_attr($this->slider->getParam('thumbnails_align_vert','center')).'",'."\n";
 					echo '								h_offset:'. esc_attr($this->slider->getParam('thumbnails_offset_hor','20',RevSlider::FORCE_NUMERIC)).','."\n";
-					echo '								v_offset:'. esc_attr($this->slider->getParam('thumbnails_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";
-					if($this->slider->getParam('thumbnails_inner_outer','inner') == 'inner'){
-						echo ($this->slider->getParam('thumbnails_position', 'slider') == 'layergrid') ? '								container:"layergrid"'."\n" : '';
-					}
+					echo '								v_offset:'. esc_attr($this->slider->getParam('thumbnails_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";					
 					echo '							}'."\n";
 				}
 				if($enable_tabs == 'on'){
@@ -4109,14 +4109,14 @@ class RevSliderOutput {
 					echo ($this->slider->getParam('span_tabs_wrapper','off') == 'on') ? 'true' : 'false';
 					echo ','."\n";
 					echo '								position:"'. esc_attr($this->slider->getParam('tabs_inner_outer','inner')).'",'."\n";
+					if($this->slider->getParam('tabs_inner_outer','inner') == 'inner'){
+						echo (in_array($this->slider->getParam('tabs_position', 'slider'),array('layergrid','grid'))) ? '									container:"layergrid",'."\n" : '';					
+					}
 					echo '								space:'. esc_attr($this->slider->getParam('tabs_space','5',RevSlider::FORCE_NUMERIC)).','."\n";
 					echo '								h_align:"'. esc_attr($this->slider->getParam('tabs_align_hor','left')).'",'."\n";
 					echo '								v_align:"'. esc_attr($this->slider->getParam('tabs_align_vert','center')).'",'."\n";
 					echo '								h_offset:'. esc_attr($this->slider->getParam('tabs_offset_hor','20',RevSlider::FORCE_NUMERIC)).','."\n";
-					echo '								v_offset:'. esc_attr($this->slider->getParam('tabs_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";
-					if($this->slider->getParam('tabs_inner_outer','inner') == 'inner'){
-						echo ($this->slider->getParam('tabs_position', 'slider') == 'layergrid') ? '								container:"layergrid"'."\n" : '';
-					}
+					echo '								v_offset:'. esc_attr($this->slider->getParam('tabs_offset_vert','0',RevSlider::FORCE_NUMERIC))."\n";											
 					echo '							}'."\n";
 				}
 				echo '						},'."\n";

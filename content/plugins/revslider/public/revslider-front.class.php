@@ -56,9 +56,11 @@ class RevSliderFront extends RevSliderBaseFront{
 		$strPutIn = RevSliderFunctions::getVal($arrValues, "pages_for_includes");
 		$isPutIn = RevSliderOutput::isPutIn($strPutIn,true);
 		
+		$do_inclusion = apply_filters('revslider_include_libraries', false);
+		
 		//put the includes only on pages with active widget or shortcode
 		// if the put in match, then include them always (ignore this if)			
-		if($isPutIn == false && $includesGlobally == "off"){
+		if($isPutIn == false && $includesGlobally == "off" && $do_inclusion == false){
 			$isWidgetActive = is_active_widget( false, false, "rev-slider-widget", true );
 			$hasShortcode = RevSliderFunctionsWP::hasShortcode("rev_slider");
 			
@@ -79,26 +81,20 @@ class RevSliderFront extends RevSliderBaseFront{
 		
 		wp_enqueue_script(array('jquery'));
 		
-		if($includesFooter == "off"){
-
-			$waitfor = array('jquery');
-			
-			$enable_logs = RevSliderFunctions::getVal($arrValues, "enable_logs",'off');
-			
-			if($enable_logs == 'on'){
-				wp_enqueue_script('enable-logs', RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.enablelog.js', $waitfor, $slver);
-				$waitfor[] = 'enable-logs';
-			}
-			
-			wp_enqueue_script('tp-tools', RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.tools.min.js', $waitfor, $slver);
-			wp_enqueue_script('revmin', RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.revolution.min.js', 'tp-tools', $slver);
-			
-		}else{
-			//put javascript to footer
-
-			add_action('wp_footer', array('RevSliderFront', 'putJavascript'));
+		$waitfor = array('jquery');
+		
+		$enable_logs = RevSliderFunctions::getVal($arrValues, "enable_logs",'off');
+		if($enable_logs == 'on'){
+			wp_enqueue_script('enable-logs', RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.enablelog.js', $waitfor, $slver);
+			$waitfor[] = 'enable-logs';
 		}
-
+		
+		
+		$ft = ($includesFooter == "off") ? false : true;
+		
+		wp_enqueue_script('tp-tools', RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.tools.min.js', $waitfor, $slver, $ft);
+		wp_enqueue_script('revmin', RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.revolution.min.js', 'tp-tools', $slver, $ft);
+		
 		
 		add_action('wp_head', array('RevSliderFront', 'add_meta_generator'));
 		add_action("wp_footer", array('RevSliderFront',"load_icon_fonts") );
@@ -491,27 +487,6 @@ class RevSliderFront extends RevSliderBaseFront{
 		}
 	}
 	
-	
-	/**
-	 * 
-	 * javascript output to footer
-	 */
-	public static function putJavascript(){
-		$slver = apply_filters('revslider_remove_version', RevSliderGlobals::SLIDER_REVISION);
-		
-		$urlPlugin = RS_PLUGIN_URL."public/assets/";
-		
-		$operations = new RevSliderOperations();
-		$arrValues = $operations->getGeneralSettingsValues();
-		
-		$js_defer = RevSliderBase::getVar($arrValues, 'js_defer', 'off');
-		if($js_defer!='off') $js_defer = 'defer="defer"';
-		else $js_defer = '';
-		?>
-		<script type='text/javascript' <?php echo $js_defer;?> src='<?php echo $urlPlugin; ?>js/jquery.themepunch.tools.min.js?rev=<?php echo $slver; ?>'></script>
-		<script type='text/javascript' <?php echo $js_defer;?> src='<?php echo $urlPlugin; ?>js/jquery.themepunch.revolution.min.js?rev=<?php echo  $slver; ?>'></script>
-		<?php
-	}
 	
 	/**
 	 * Add Meta Generator Tag in FrontEnd

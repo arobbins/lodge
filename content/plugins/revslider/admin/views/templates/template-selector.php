@@ -187,7 +187,7 @@ $all_slider = $tmp_slider->getArrSliders();
 									$c_slide['zip'] = $m_slider['zip'];	
 									$c_slide['current_version'] = isset($m_slider['current_version']) ? $m_slider['current_version'] : 'N/A';
 									$c_slide['required'] = $m_slider['required'];
-									$c_slide['title'] = $c_title;
+									$c_slide['title'] = $m_slider['title'];
 									$c_slide['plugin_require'] = $m_slider['plugin_require'];
 									$c_slide['description'] = (isset($m_slider['description'])) ? $m_slider['description'] : '';
 									$c_slide['setup_notes'] = (isset($m_slider['setup_notes'])) ? $m_slider['setup_notes'] : '';
@@ -271,7 +271,7 @@ $all_slider = $tmp_slider->getArrSliders();
 			<?php
 			if(!empty($templates)){
 				?>		
-				<div class="template_slider_title"><?php _('User Templates', 'revslider'); ?></div>
+				<div class="template_slider_title"><?php _e('User Templates', 'revslider'); ?></div>
 				<div class="temp_slides_in_slider_wrapper">					
 				<?php
 				foreach($templates as $template){

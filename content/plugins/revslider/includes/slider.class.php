@@ -3261,22 +3261,27 @@ class RevSliderSlider extends RevSliderElementsBase{
 		
 		$is_gal = false;
 		$additional = array();
-		if(!empty($gal_ids)){
+
+		if(!empty($gal_ids) && $gal_ids[0]){
 			$strPosts = $gal_ids;
 			$strPosts = apply_filters('revslider_set_posts_list_gal', $strPosts, $this->getID());
 			$is_gal = true;
 		}else{
-			$strPosts = $this->getParam("posts_list", "");
-			$additional['order'] = $this->getParam("posts_sort_direction", "DESC");
-			$additional['orderby'] = $this->getParam("post_sortby", "");
-			
+			if(isset($gal_ids[0])){
+				unset($gal_ids[0]);
+				$strPosts = implode(",", $gal_ids);
+			}else {
+				$strPosts = $this->getParam("posts_list", "");	
+				$additional['order'] = $this->getParam("posts_sort_direction", "DESC");
+				$additional['orderby'] = $this->getParam("post_sortby", "");
+			}
 			$strPosts = apply_filters('revslider_set_posts_list', $strPosts, $this->getID());
 		}
 		
 		$slider_id = $this->getID();
 		
 		$arrPosts = RevSliderFunctionsWP::getPostsByIDs($strPosts, $slider_id, $is_gal, $additional);
-		
+
 		return($arrPosts);
 	}
 	

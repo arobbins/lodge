@@ -1,6 +1,6 @@
 /************************************************
  * REVOLUTION 5.2 EXTENSION - LAYER ANIMATION
- * @version: 2.1.1 (03.03.2016)
+ * @version: 2.2.0 (10.03.2016)
  * @requires jquery.themepunch.revolution.js
  * @author ThemePunch
 ************************************************/
@@ -445,7 +445,9 @@ jQuery.extend(true,_R, {
 	
 		if (rtl && !slidelink) 
 			elx = elx + eow;
-		
+	
+		if (slidelink)
+			elx=0;
 	
 		// THE TRANSITIONS OF CAPTIONS
 		// MDELAY AND MSPEED
@@ -453,7 +455,7 @@ jQuery.extend(true,_R, {
 		
 		var $lts = _nc.data('lasttriggerstate'),
 			$cts = _nc.data('triggerstate'),
-			$start = _nc.data('start') || 100,		
+			$start = _nc.data('start') != undefined ? _nc.data('start') : 100,		
 			$end = _nc.data('end'),
 			mdelay = triggerforce ? 0 : $start==="bytrigger" || $start==="sliderenter" ? 0 : parseFloat($start)/1000,
 			calcx = (elx+offsetx),
@@ -725,17 +727,13 @@ jQuery.extend(true,_R, {
 					var tot = setTimeout(function() {
 						_R.endMoveCaption(_nc,_mw,_pw,opt);
 					},parseInt(_nc.data('end'),0));					
-				else
+				/*else
 					var tot = setTimeout(function() {
 						_R.endMoveCaption(_nc,_mw,_pw,opt);
-					},999999);
+					},999999999);*/
 				opt.endtimeouts.push(tot);
 
 			}
-/*					punchgs.TweenLite.delayedCall(parseInt(_nc.data('end'),0)/1000,_R.endMoveCaption,[_nc,_mw,_pw,opt],opt.sliderscrope);
-				else
-					punchgs.TweenLite.delayedCall(999999,_R.endMoveCaption,[_nc,_mw,_pw,opt],opt.sliderscrope);
-*/				
 			
 
 			// SAVE THE TIMELINE IN DOM ELEMENT
@@ -774,8 +772,8 @@ jQuery.extend(true,_R, {
 	////////////////////////////
 	endMoveCaption : function(_nc,_mw,_pw,opt) {
 
-		_mw = _mw || _nc.data('_mw');
-		_pw = _pw || _nc.data('_pw');
+		_mw = _mw !=undefined ? _mw : _nc.data('_mw');
+		_pw = _pw !=undefined ? _pw : _nc.data('_pw');
 
 		// Kill TimeLine of "in Animation"
 		_nc.data('outstarted',1);

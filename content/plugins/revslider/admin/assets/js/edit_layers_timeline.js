@@ -2812,6 +2812,7 @@ var tpLayerTimelinesRev = new function(){
 		jQuery('.quick-layers-list').append(quicksb);
 
 		
+		
 		if (jQuery('.quick-layers-list li').length>1) jQuery('.nolayersavailable').hide();
 
 		htmlSortbox = "";
@@ -2962,8 +2963,8 @@ var tpLayerTimelinesRev = new function(){
 
 		
 		
-		var dsiw = dragspeedin.data('dsw') || dragspeedin.width(),
-			dsow = dragspeedout.data('dew') || dragspeedout.width();
+		var dsiw = dragspeedin.data('dsw') !=undefined ? dragspeedin.data('dsw')  : dragspeedin.width(),
+			dsow = dragspeedout.data('dew') !=undefined ? dragspeedout.data('dew') : dragspeedout.width();
 
 		// CHANGE DURATION OF ELEMENTS
 		dragfull.resizable({
@@ -2976,9 +2977,9 @@ var tpLayerTimelinesRev = new function(){
 			create:function() {
 				
 				var maxtime = (t.mainMaxTimeLeft)-15,
-					w =dragfull.data('dfw') || dragfull.width(),					
-					speedoutw = dragspeedout.data('dew') || dragspeedout.width(),
-					dfl = dragfull.data('dfl') || dragfull.position().left,
+					w =dragfull.data('dfw') !=undefined ? dragfull.data('dfw') :  dragfull.width(),					
+					speedoutw = dragspeedout.data('dew') != undefined ? dragspeedout.data('dew') : dragspeedout.width(),
+					dfl = dragfull.data('dfl') !=undefined ? dragfull.data('dfl') : dragfull.position().left,
 					l = parseInt(dfl);
 								
 				// IF THE TIMELINE TOO LONGTH AT START
@@ -3635,7 +3636,9 @@ var tpLayerTimelinesRev = new function(){
 				if (objLayer.endtime-objLayer.endspeed >= maxtime) {					
 					objLayer.endtime = maxtime + objLayer.endspeed - 100;
 
-					jQuery('#layer_sort_time_'+serial).find('.sortbox_timeend').html(msToSec(maxtime+objLayer.endspeed-100));					
+					jQuery('#layer_sort_time_'+serial).find('.sortbox_timeend').html(msToSec(maxtime+objLayer.endspeed-100));		
+					jQuery('#clayer_end_time').val((maxtime+objLayer.endspeed-100));
+
 					
 					setCurTimer(jQuery('#layer_sort_time_'+serial).find('.timeline .tl-fullanim'));
 				}
@@ -3644,7 +3647,8 @@ var tpLayerTimelinesRev = new function(){
 
 				objLayer.endtime =  maxtime + objLayer.endspeed;
 				jQuery('#layer_sort_time_'+serial).find('.sortbox_timeend').html(msToSec(maxtime + objLayer.endspeed));
-				
+				jQuery('#clayer_end_time').val((maxtime + objLayer.endspeed));
+
 
 				setCurTimer(jQuery('#layer_sort_time_'+serial).find('.timeline .tl-fullanim'));
 
@@ -3973,8 +3977,8 @@ var tpLayerTimelinesRev = new function(){
 				if (bgposition==undefined) bgposition="center center";
 				
 
-				var w= w || jQuery('#divbgholder').width(),
-					h= h || jQuery('#divbgholder').height();
+				var w= w !=undefined ? w : jQuery('#divbgholder').width(),
+					h= h !=undefined ? h : jQuery('#divbgholder').height();
 				opt.slotw=Math.ceil(w/opt.slots),
 				opt.sloth=Math.ceil(h/opt.slots);
 				
