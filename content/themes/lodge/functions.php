@@ -72,3 +72,24 @@ function map($atts) {
   return $content;
 }
 add_shortcode('map', 'map');
+
+
+//
+// Changing the default Wordpress login logo
+//
+function custom_login_logo() { ?>
+  <style type="text/css">
+    #login {
+        padding-top: 30px;
+    }
+
+    .login h1 a {
+      background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/imgs/logo-mark.svg);
+      padding-bottom: 20px;
+      width: 300px;
+      height: 184px;
+      background-size: contain;
+    }
+  </style>
+<?php }
+add_action('login_enqueue_scripts', 'custom_login_logo');
