@@ -134,8 +134,9 @@
   height: 100%;
 }
 
-.slick-track {
+.home .slick-track {
   width: 100% !important;
+  
   @include respond-to(500, 'max') {
     width: 100% !important;
   }
